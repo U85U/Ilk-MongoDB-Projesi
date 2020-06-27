@@ -1,0 +1,40 @@
+extends layout
+
+block content
+ 
+
+    h1 Kullanıcı Listesi
+    hr
+     
+    form(method='POST' action='/users/find')
+        .form-group
+            input.form-control(placeholder='Aranacak İsim' name='isim')
+        button.btn.btn-primary(type='submit') Ara
+
+    
+    table.table.table-hover.table-bordered
+        thead
+            tr
+                th İsim
+                th Soy İsim
+                th email
+                th Yaş
+                th Değiştir
+                th Sil
+
+        each user, i in userList
+            tr
+                td #{user.name}
+                td #{user.surname}
+                td #{user.email}
+                td #{user.age}
+                td 
+                    a.btn.btn-primary.btn-xs(href='/users/update/'+user._id) Değiştir
+                td 
+                    a.btn.btn-danger.btn-xs(href='/users/delete/'+user._id) Sil
+
+    
+    div.row
+                div.col-md-12
+                    a.btn.btn-default(
+                    href="/users/create") Yeni Kullanıcı Ekle

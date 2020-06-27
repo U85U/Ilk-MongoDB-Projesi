@@ -1,0 +1,44 @@
+extends layout
+block content
+
+    div.container
+        div.content
+            h1 Kullanıcı Bilgisi Değiştir
+            hr
+            form.form-horizontal(action='/users/update/'+id,
+            method='POST')
+                div.form-group
+                    label.col-sm-2.control-label(
+                    for="name-input") İsim
+                    div.col-sm-10
+                        input.form-control( 
+                        id="name-input"
+                        name="name"
+                        placeholder="Ad Giriniz") 
+                    
+                div.form-group
+                    label.col-sm-2.control-label(
+                    for="surname-input") Soyad
+                    div.col-sm-10
+                        input.form-control(
+                        id="surname-input"
+                        name="surname"
+                        placeholder="Soyad Giriniz")
+
+  
+                
+                div.form-group
+                    label.col-sm-2.control-label(
+                    for="age-input") Yaş
+                    div.col-sm-10
+                        input.form-control(
+                        id="age-input"
+                        name="age"
+                        placeholder='Yaş Giriniz')
+                
+
+
+                div.form-group        
+                    div.col-sm-offset-2.col-sm-10
+                        button.btn.btn-primary(
+                        type="submit") Kullanıcı Güncelle
